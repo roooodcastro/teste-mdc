@@ -6,6 +6,7 @@ ruby '~> 2.4.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'rails', '~> 5.1.1'
 
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'js-routes'
 gem 'puma', '~> 3.7'

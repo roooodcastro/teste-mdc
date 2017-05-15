@@ -1,0 +1,47 @@
+@import "@material/ripple/mixins";
+
+$avatar_size: 80px;
+
+.mdc-persistent-drawer--wide { width: 320px; }
+.mdc-persistent-drawer__drawer { width: 100%; }
+
+.mdc-persistent-drawer__header-content {
+  align-items: flex-start;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.mdc-persistent-drawer__header-useravatar {
+  background-color: white;
+  border-radius: ($avatar_size / 2);
+  height: $avatar_size;
+  width: $avatar_size;
+  img {
+    border-radius: ($avatar_size / 2);
+    height: $avatar_size;
+    width: $avatar_size;
+  }
+}
+
+.mdc-persistent-drawer__header-userinfo {
+  @include mdc-ripple-base;
+  @include mdc-ripple-bg((pseudo: "::before"));
+  @include mdc-ripple-fg((pseudo: "::after"));
+  cursor: pointer;
+  margin: -16px;
+  overflow: hidden;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+  i { position: absolute; right: 16px; top: 36px; }
+}
+
+.mdc-persistent-drawer__header-username {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.mdc-persistent-drawer__header-useremail {
+  margin: 5px 0;
+}

@@ -1,14 +1,80 @@
 <!DOCTYPE html>
-<html class="mdc-typography">
-  <head>
-    <title>TesteMdc</title>
-    <%= csrf_meta_tags %>
+<html>
+<head>
+  <title>Google Material Design Components for Web Test</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all',
+                             'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application',
+                             'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body class="main-body mdc-typography">
+<aside class="mdc-persistent-drawer mdc-persistent-drawer--open mdc-elevation--z4 mdc-persistent-drawer--wide">
+  <nav class="mdc-persistent-drawer__drawer">
+    <header class="mdc-persistent-drawer__header">
+      <div class="mdc-persistent-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">
+        <div class="mdc-persistent-drawer__header-useravatar">
+          <%= image_tag 'user_no_avatar.png' %>
+        </div>
+
+        <div class="surface mdc-persistent-drawer__header-userinfo mdc-menu-anchor">
+          <p class="mdc-persistent-drawer__header-username">
+            <%= current_user.name %>
+          </p>
+
+          <p class="mdc-persistent-drawer__header-useremail">
+            <%= current_user.email %>
+          </p>
+
+          <%= fa_icon 'caret-down' %>
+
+          <div id="user_options_menu" class="mdc-simple-menu"
+               tabindex="-1" style="top: 100px;">
+            <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+              <li class="mdc-list-item" role="menuitem" tabindex="0">
+                A Menu Item
+              </li>
+              <li class="mdc-list-item" role="menuitem" tabindex="0">
+                Another Menu Item
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav id="icon-with-text-demo" class="mdc-persistent-drawer__content mdc-list">
+      <%= link_to root_path, class: 'mdc-list-item mdc-persistent-drawer--selected' do %>
+        <%= fa_icon 'home', class: 'fa-2x mdc-list-item__start-detail', text: 'Home' %>
+      <% end %>
+
+      <%= link_to root_path, class: 'mdc-list-item' do %>
+        <%= fa_icon 'arrow-right', class: 'fa-2x mdc-list-item__start-detail', text: 'Mobilidade In' %>
+      <% end %>
+
+      <%= link_to root_path, class: 'mdc-list-item' do %>
+        <%= fa_icon 'arrow-left', class: 'fa-2x mdc-list-item__start-detail', text: 'Mobilidade Out' %>
+      <% end %>
+
+      <%= link_to root_path, class: 'mdc-list-item' do %>
+        <%= fa_icon 'cog', class: 'fa-2x mdc-list-item__start-detail', text: 'Configurações do Sistema' %>
+      <% end %>
+    </nav>
+  </nav>
+</aside>
+
+<div class="main-container">
+  <header class="mdc-toolbar mdc-elevation--z4">
+    <div class="mdc-toolbar__row">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <span class="mdc-toolbar__title catalog-title">Teste do MDC Web</span>
+      </section>
+    </div>
+  </header>
+  <main class="main-content">
     <%= yield %>
-  </body>
+  </main>
+</div>
+</body>
 </html>
